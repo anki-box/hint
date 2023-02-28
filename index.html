@@ -1,0 +1,76 @@
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Hint Generator</title>
+  <link type="image/png" sizes="16x16" rel="icon" href="/file/hint-ankibox.svg">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <script src="script.js"></script>
+  <script src="https://static.cbox.ws/embed/2.js" async></script>
+
+  <link href='https://fonts.googleapis.com/css?family=Inter' rel='stylesheet'>
+  <link href="style.css" rel="stylesheet" type="text/css">
+  
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-SWP1PLE3P8"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+  
+    gtag('config', 'G-SWP1PLE3P8');
+  </script>
+</head>
+
+
+<body>
+  <h1>Hint Generator</h1>
+
+  <p>Enter text in the input area below</p>
+
+  <textarea id="input"></textarea>
+
+  <p>
+
+    <label for="mySelect">Select:</label>
+    <select name="mySelect" id="mySelect" onchange="showHide()">
+      <option value="first">Replace all except the first letter</option>
+      <option value="vowel">Replace the vowels</option>
+      <option value="replace">Replace</option>
+    </select>
+    <script>document.getElementById("mySelect").value = "vowel";</script>
+
+    <button id="toggleButton">Setting</button>
+  <p id="elementToToggle" class="left-aligned" style="display: none;">
+    <input type="checkbox" id="RemoveWhitespace" name="RemoveWhitespace" value="RemoveWhitespace" checked>
+    <label for="RemoveWhitespace"> Remove leading and trailing whitespace</label><br>
+    <input type="checkbox" id="ConvertLowercase" name="ConvertLowercase" value="ConvertLowercase" checked>
+    <label for="RemoveWhitespace"> Convert to lowercase</label><br>
+  </p>
+  <script>
+    document.getElementById("toggleButton").addEventListener("click", function () {
+      let element = document.getElementById("elementToToggle");
+      if (element.style.display === "none") {
+        element.style.display = "block";
+      } else {
+        element.style.display = "none";
+      }
+    });
+  </script>
+
+  <p id="elementToShowHide" class="left-aligned" style="display: none;">
+    <label for="findChar">Find what:</label>
+    <input type="text" id="findChar" name="findChar"><br>
+    <label for="replaceChar">Replace with:</label>
+    <input type="text" id="replaceChar" name="replaceChar"><br>
+  </p>
+
+  <button id="replace-button" onclick="ShowHint()">Show hint</button>
+  </p>
+
+
+  <textarea id="output"></textarea>
+</body>
+
+</html>
